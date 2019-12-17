@@ -4,12 +4,8 @@ var path = require('path');
 var cors = require('cors');
 const fs = require('fs');
 var io = require('socket.io')(http);
-var numeral = require('numeral');
 var moment = require('moment');
 var now = require("performance-now");
-var jsonata = require("jsonata");
-//JSON.truncate = require('json-truncate');
-const BSON = require('bson');
 const { init, fuzzySearch } = require('./scripts/db');
 
 console.log('Setting rootPath');
@@ -330,97 +326,6 @@ app.get('/touchfile', function(req, res) {
     processAllData('API_Invoked');
 });
    
-app.get('/getJsonQuery/:QueryString', function(req, res) {
-    console.time('getJsonQuery');
-    //sometime the data has not yet finished being porcessed?
-    try {
-        var queryStringText = req.params.QueryString;
-        var depthNumber = req.query.depth;
-        if(summaryData.result==false){
-            //no data has been loaded as yet?
-            var queryResult = {result:true, code:002, description:'The release is still being processed'};
-            console.timeEnd('getJsonQuery');
-            res.json(queryResult);
-            return false;
-        }
-        
-        if(depthNumber==null){
-            depthNumber = 2;
-        }
-        if(depthNumber>42){
-            var queryResult = {result:false, description:'Query depth beyond 42 is not supported.'};
-            console.timeEnd('getJsonQuery');
-            res.json(queryResult);
-            return false;
-        }
-        if(depthNumber<1){
-            var queryResult = {result:false, description:'Query depth below 1 is not supported.'};
-            console.timeEnd('getJsonQuery');
-            res.json(queryResult);
-            return false;
-        }
-        try {
-            var expression = jsonata(queryStringText);    
-        } catch (error) {
-            var queryResult = {result:false, description:'Query isnt formated correctly ' + error.message};
-            console.timeEnd('getJsonQuery');
-            res.json(queryResult);
-            return false;
-        }
-        try{
-            var result = expression.evaluate(summaryData);
-        } catch (error){
-            var queryResult = {result:false, description:'Cannot get a result from query ' + queryStringText};
-            console.timeEnd('getJsonQuery');
-            res.json(queryResult);
-            return false;
-        }
-        
-        if(result==null){
-            var queryResult = {result:false, description:'No valid data found on query ' + queryStringText};
-            res.json(queryResult);
-            console.timeEnd('getJsonQuery');
-            return false;
-        }else{
-            try {
-                //var queryResult = JSON.truncate(result, depthNumber);    
-            } catch (error) {
-                var queryResult = {result:false, description:'Unable to truncate query ' + queryStringText + ' to a depth of ' + depthNumber + '. Try a smaller depth to reduce the size of the return object'};
-                console.timeEnd('getJsonQuery');
-                res.json(queryResult);
-                return false;
-            }
-        }
-            
-    } catch (error) {
-        var queryResult = {result:false, description: error.message};                
-        console.timeEnd('getJsonQuery');
-        res.json(queryResult);
-        return false;
-    }
-    try {
-        console.time('BSON.calculateObjectSize');
-        var resultSizeBson = BSON.calculateObjectSize(queryResult);
-        console.timeEnd('BSON.calculateObjectSize');
-        console.log('resultSizeBson:' + resultSizeBson);
-        var maxresultSize = 45 * 1000 * 1000; 
-        if(resultSizeBson>maxresultSize){
-            var queryResult = {result:false, description:'Unable to return query ' + queryStringText + ' to a depth of ' + depthNumber + ' as its too large for the browser. Try a smaller depth to reduce the size of the return object or a more pointed query. Object size ' + numeral(resultSizeBson).format('0.0 b') + ' exceeds max limit set by admin of ' + numeral(maxresultSize).format('0.0 b') + '.'};
-            res.json(queryResult);
-            return false;
-        }
-    } catch (error){
-        var queryResult = {result:false, description:'Unable to return query ' + queryStringText + ' to a depth of ' + depthNumber + ' as its too large for the browser. Try a smaller depth to reduce the size of the return object'};
-        console.timeEnd('getJsonQuery');
-        res.json(queryResult);
-        return false;
-    }
-    console.timeEnd('getJsonQuery');    
-    res.json(queryResult);
-});  
-
-
-
 io.on('connection', function(socket){
   socket.on('chat message', function(msg){
     io.emit('chat message', msg);
