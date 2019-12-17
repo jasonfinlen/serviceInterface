@@ -1,0 +1,5 @@
+{
+	"projectversion":"1.0.009",
+	"projectartifactId":"commonInformationModel",
+	"releaseNumber":"${releaseNumber}"
+}

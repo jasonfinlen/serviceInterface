@@ -1,0 +1,1 @@
+{"table":{"name":"PERSON_SEARCH_SETTING_CODE_TYPE","row":[{"column":[{"name":"PERSON_SEARCH_SETTING_CODE","$":"Private"},{"name":"DESCRIPTION","$":"Private"}]},{"column":[{"name":"PERSON_SEARCH_SETTING_CODE","$":"Public"},{"name":"DESCRIPTION","$":"Public"}]}]}}

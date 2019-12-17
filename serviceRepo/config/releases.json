@@ -1,0 +1,98 @@
+{
+    "releases": [
+        {
+            "releaseName": "JUN19",
+            "serviceModels": [
+                {
+                    "name": "Enterprise",
+                    "description": "Enterprise",
+                    "branch": "ServiceModel36",
+                    "modelFile": "enterpriseModelsXSDContents.json",
+                    "readMeFile": "enterpriseModelsREADMEContents.json",
+                    "buildFile": "buildinfo.json"
+                },
+                {
+                    "name": "Provider",
+                    "description": "Enterprise",
+                    "branch": "ServiceModel36"
+                },
+                {
+                    "name": "Integration",
+                    "description": "Enterprise",
+                    "branch": "ServiceModel36"
+                },
+                {
+                    "name": "Intel",
+                    "description": "Intelligence",
+                    "branch": "JasonsSanpit1"
+                }
+            ],
+            "transforms": [
+                {
+                    "name": "DP",
+                    "description": "Datapower transforms",
+                    "branch": "DP_ESB36"
+                }
+            ],
+            "referenceDataList": [
+                {
+                    "name": "Identity",
+                    "description": "Identity Reference data",
+                    "branch": "ICRT1"
+                }
+            ],
+            "releaseDateTime": "2019-03-01T21:01:00",
+            "selected": false,
+            "disabled": false,
+            "order": 2
+        },
+        {
+            "releaseName": "NOV19",
+            "serviceModels": [
+                {
+                    "name": "Enterprise",
+                    "description": "Enterprise",
+                    "branch": "ServiceModel37",
+                    "previous_branch": "ServiceModel36",
+                    "modelFile": "enterpriseModelsXSDContents.json",
+                    "readMeFile": "enterpriseModelsREADMEContents.json",
+                    "buildFile": "buildinfo.json",
+                    "autoPopulate": "macroAutoPopulate.json"
+                },
+                {
+                    "name": "Provider",
+                    "description": "Enterprise",
+                    "branch": "ServiceModel37"
+                },
+                {
+                    "name": "Integration",
+                    "description": "Enterprise",
+                    "branch": "ServiceModel37"
+                },
+                {
+                    "name": "Intel",
+                    "description": "Intelligence",
+                    "branch": "JasonsSanpit2"
+                }
+            ],
+            "transforms": [
+                {
+                    "name": "DP",
+                    "description": "Datapower transforms",
+                    "branch": "DP_ESB37"
+                }
+            ],
+            "referenceDataList": [
+                {
+                    "name": "Identity",
+                    "description": "Identity Reference data",
+                    "branch": "ICRT1"
+                }
+            ],
+            "releaseDateTime": "2019-11-02T21:01:00",
+            "selected": true,
+            "disabled": false,
+            "order": 1
+        }
+    ]
+}
