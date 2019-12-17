@@ -1,0 +1,12 @@
+.bb-chart-line .bb-circles-expectation {
+  display: none;
+}
+.bb-chart-line .bb-line-expectation {
+  stroke-width: 5px;
+}
+.bb-chart-line .bb-line{
+  stroke-width: 3px;
+}
+.bb-chart-line .bb-circle{
+  r: 3;
+}

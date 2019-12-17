@@ -1,0 +1,115 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+        <title> Service Repo </title>
+        <link rel="stylesheet" type="text/css" media="screen" href="vendors/jquery-ui-1.12.1/jquery-ui.css" />
+        <link rel="stylesheet" type="text/css" media="screen" href="vendors/quicksearch/quicksearchstyle.css" />
+        <link rel="stylesheet" type="text/css" media="screen" href="vendors/jqtree/jqtree.css"/>
+        <link rel="stylesheet" type="text/css" media="screen" href="css/buildInfoWidget.css"/>
+        <link rel="stylesheet" type="text/css" media="screen" href="css/tree.css"/>
+        <link rel="stylesheet" type="text/css" media="screen" href="css/countDownTimer.css"/>
+        <link rel="stylesheet" type="text/css" media="screen" href="css/repositoryIndex.css"/>
+        <link rel="stylesheet" type="text/css" media="screen" href="vendors/mermaid/mermaid.forest.css"/>
+        <link rel="stylesheet" type="text/css" media="screen" href="vendors/mermaid/card.css"/>
+        <link rel="stylesheet" type="text/css" media="screen" href="vendors/d3/d3style.css"/>
+        <link rel="stylesheet" type="text/css" media="screen" href="css/projectList.css"/>
+        <link rel="stylesheet" type="text/css" media="screen" href="css/repositoryIndex.css"/>
+        <link rel="stylesheet" type="text/css" media="screen" href="css/dependencyWheel.css"/>
+        <link rel="stylesheet" type="text/css" media="screen" href="vendors/c3/c3.css"/>
+        <link rel="stylesheet" type="text/css" media="screen" href="css/c3.custom.css"/>
+		<link rel="stylesheet" type="text/css" media="screen" href="vendors/christmas/css/snow.css"/>
+        <style type="text/css">
+		.traffic-light {
+		width: 100%;
+		}
+		
+		.off {
+		background-color: transparent!important;
+		}
+		
+		.traffic-light {
+		margin: 0 auto;
+		width: 10%;
+		min-width: 180px;
+		border: 5px solid black;
+		}
+		
+		.traffic-light div {
+		margin: 0 auto;
+		width: 150px;
+		height: 150px;
+		border: 5px solid black;
+		border-radius: 50%;
+		margin-top: 5px;
+		margin-bottom: 5px;
+		}
+		
+		.red {
+		background-color: red;
+		}
+		
+		.yellow {
+		background-color: yellow;
+		}
+		
+		.green {
+		background-color: green;
+		}
+        </style>
+        <style type="text/css">
+            #maintab li .ui-icon-close { float: left; margin: 0.4em 0.2em 0 0; cursor: pointer; }
+            #maintab { margin-top: 1em; }
+        </style>
+        <script type="text/javascript" src="vendors/jquery/jquery-3.2.0.min.js"></script>
+        <script type="text/javascript" src="vendors/jquery-ui-1.12.1/jquery-ui.js"></script>
+        <script type="text/javascript" src="vendors/jqtree/tree.jquery.js"></script>
+        <script type="text/javascript" src="vendors/quicksearch/jquery.quicksearch.js"></script>
+        <script type="text/javascript" src="vendors/jQuery-loadingBlock/js/jquery.loading.block.js"></script>
+        <script type="text/javascript" src="js/filter.js"></script>
+        <script type="text/javascript" src="js/chord.js"></script>
+        <script type="text/javascript" src="js/repositoryIndex.js"></script>
+        <script type="text/javascript" src="js/buildInfoWidget.js"></script>
+        <script type="text/javascript" src="js/monthlyStats.js"></script>
+        <script type="text/javascript" src="js/countDownTimer.js"></script>
+        <script type="text/javascript" src="js/diagrams.js"></script>
+        <script type="text/javascript" src="js/genericFunctions.js"></script>
+        <script type="text/javascript" src="js/macroFunctions.js"></script>
+        <script type="text/javascript" src="vendors/d3/d3.v3.5.17.min.js"></script>
+        <script type="text/javascript" src="js/dependencyWheel.js"></script>
+        <script type="text/javascript" src="js/macroGraphs.js"></script>
+        <script type="text/javascript" src="vendors/c3/c3.js"></script>
+    	<script type="text/javascript" src="js/queueDashboard.js"></script>
+        <script type="text/javascript">
+			$(document).ready(function() {
+				console.log('Document Ready');
+				queueTransmissionStatsCheck(false);
+	    	});
+        </script>
+    </head>
+    <body>
+		<header>
+			<h1>Queue Dashboard</h1>
+		</header>
+        <!--div id="wrapper" class="traffic-light">
+            <h1>CAPM Health Check</h1>
+            <div id="red-light" class="red"></div>
+            <div id="yellow-light" class="yellow"></div>
+            <div id="green-light" class="green"></div>
+        </div-->
+        <br></br>
+        <div id="queueQueryDiv">
+            <label for="queueQuerySelector"> Queue Query</label>
+            <select name="queueQuerySelector" id="queueQuerySelector">
+                <option value="" disabled="disabled" selected="selected"></option>     
+            </select>
+            <!--label for="showNormalQueues">Show Normal Queues</label-->
+            <input type="checkbox" name="showNormalQueues" id="showNormalQueues" value="normalQueues" checked="checked">Show Normal Queues</input>
+            <input type="checkbox" name="showSystemQueues" id="showSystemQueues" value="systemQueues">Show System Queues</input>
+            <input type="checkbox" name="showExceptionQueues" id="showExceptionQueues" value="exceptionQueues">Show Dead,Retry,Exception Queues</input>
+        </div>
+        <br></br>
+        <div id="queuePerformanceData">
+		</div>
+    </body>
+</html>

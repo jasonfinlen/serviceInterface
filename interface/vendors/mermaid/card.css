@@ -1,0 +1,26 @@
+.card {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    border-radius: 5px; /* 5px rounded corners */
+    padding-bottom:20px;
+}
+.cardtitle{
+	padding-top:20px;
+	padding-left:20px;
+	color:#000000;
+	letter-spacing:2pt;
+	word-spacing:3pt;
+	font-size:22px;
+	text-align:left;
+}
+.cardloading{
+	padding-top:40px;
+	padding-left:20px;
+	color:#000000;
+	letter-spacing:2pt;
+	word-spacing:3pt;
+	font-size:12px;
+	text-align:left;
+}
+
+

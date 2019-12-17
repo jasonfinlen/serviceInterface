@@ -1,0 +1,11 @@
+.pdfButton {
+	font-size:19px;
+	padding:6px 18px;
+	text-decoration:none;
+	/*position: absolute;
+    right: 30px;
+    top: 80px;*/
+}
+.ui-button-icon-only.demo-splitbutton-select {
+    width: 1em;
+}

@@ -1,0 +1,105 @@
+/* From http://bost.ocks.org/mike/style.css?20120427 */
+ 
+html {
+min-width: 1040px;
+}
+ 
+.attribution {
+font-size: small;
+margin-bottom: 2em;
+}
+ 
+div > p, li > p {
+line-height: 1.5em;
+}
+ 
+div > p {
+width: 720px;
+}
+ 
+div > blockquote {
+width: 640px;
+}
+ 
+blockquote q {
+display: block;
+font-style: oblique;
+}
+
+ 
+pre, code, textarea {
+font-family: "Menlo", monospace;
+}
+ 
+code {
+line-height: 1em;
+}
+ 
+textarea {
+font-size: 100%;
+}
+ 
+div > pre {
+border-left: solid 2px #ccc;
+padding-left: 18px;
+margin: 2em 0 2em -20px;
+}
+ 
+.html .value,
+.javascript .string,
+.javascript .regexp {
+color: #756bb1;
+}
+ 
+.html .tag,
+.css .tag,
+.javascript .keyword {
+color: #3182bd;
+}
+ 
+.comment {
+color: #636363;
+}
+ 
+.html .doctype,
+.javascript .number {
+color: #31a354;
+}
+ 
+.html .attribute,
+.css .attribute,
+.javascript .class,
+.javascript .special {
+color: #e6550d;
+}
+ 
+svg {
+font: 10px sans-serif;
+}
+ 
+.axis path, .axis line {
+fill: none;
+stroke: #000;
+shape-rendering: crispEdges;
+}
+ 
+sup, sub {
+line-height: 0;
+}
+ 
+q:before {
+content: "â€œ";
+}
+ 
+q:after {
+content: "â€";
+}
+ 
+blockquote:before {
+position: absolute;
+left: 2em;
+}
+ 
+blockquote:after {
+position: absolute;
+}

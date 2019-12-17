@@ -1,0 +1,283 @@
+body {
+	margin: 0;
+}
+#container {
+	padding: 10px 20px;
+	margin: 8px;
+}
+td>h4{
+    font-weight: bold;
+    font-family: montserratlight,sans-serif;
+    font-size:14px;
+    color: black;
+    display: inline;
+}
+td>h4::after{
+    content: " - ";
+}
+td>p{
+    display: inline;
+}
+
+header h1 {
+	color: white;
+	font-family: montserratlight,sans-serif;
+    font-weight: lighter;
+    margin: 0;
+    padding: 18px;
+}
+
+header {
+	background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTUwMHB4IiBoZWlnaHQ9IjMycHgiIHZpZXdCb3g9IjAgMCAxIDEiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxkZWZzPjxsaW5lYXJHcmFkaWVudCBpZD0iYmdncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPjxzdG9wIHN0b3AtY29sb3I9IiMxYjM1NjQiIG9mZnNldD0iMC4yIi8+PHN0b3Agc3RvcC1jb2xvcj0iIzBiNmU5ZCIgb2Zmc2V0PSIxIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNiZ2dyYWQpIiAvPjwvc3ZnPg==);
+	background-size: 100%;
+	height: 70px;
+	margin: 0px;
+}
+
+#menuDiv {
+    background-color: #e9e9e9;
+	height:30px;
+	padding:5px;
+}
+
+#releaseDiv {
+	position:absolute;
+}
+
+.mytable{
+    width:100%;
+    font-size:12px;
+    border:2px solid #ccc;
+    border-collapse:collapse;
+    table-layout: fixed;
+}
+th{
+    background-color:#4791FF;
+    color:#FFF;
+    padding:2px;
+    border:1px solid #ccc;
+}
+td{
+    padding:2px;
+    border-bottom:1px solid #ccc;
+    border-right:1px solid #ccc;
+    white-space: -o-pre-wrap; 
+    word-wrap: break-word;
+    white-space: pre-wrap; 
+    white-space: -moz-pre-wrap; 
+    white-space: -pre-wrap; 
+}
+.normalTable{
+    width: 100%;
+    font-size:12px;
+    border:2px solid #ccc;
+    border-collapse:collapse;
+    
+}
+#circle circle {
+    fill: none;
+    pointer-events: all;
+}
+.group path {
+    fill-opacity: .7;
+}
+path.chord {
+    stroke: #000;
+    stroke-width: .25px;
+}
+#circle:hover path.fade {
+    display: none;
+}
+.clearfix{
+    clear:both
+}
+.tab { 
+    margin-left: 20px; 
+}
+.downloadLink {
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    border: solid 1px #20538D;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+    background: #699fdd;
+    color: #FFF;
+    padding: 1px 4px 1px 4px;
+    text-decoration: none;
+    text-decoration: none;
+     
+}
+
+.newTabLink {
+    text-decoration: underline;
+}
+
+.h3subtext{
+    font-size:12px;
+    margin-left: 20px;
+}
+
+.h3buildtext{
+    font-size:12px;
+    margin-left: 100px;
+    float:right;
+}
+
+.accordiontable{
+    width:100%;
+    font-size:16px;
+    border:4px solid #ccc;
+    border-collapse:collapse;
+    table-layout: fixed;
+    padding: 2px 2px 2px 2px;
+}
+
+.copytextarea{
+    /*display: none;  Hidden by default */
+}
+
+#menusButton {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed/sticky position */
+    bottom: 5px; /* Place the button at the bottom of the page */
+    right: 5px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    border: 2px solid black;; /* Remove borders */
+    outline: none; /* Remove outline */
+    background-color: #003366; /* Set a background color */
+    color: white; /* Text color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    padding: 15px; /* Some padding */
+    border-radius: 10px; /* Rounded corners */
+    opacity: 0.6;
+}
+
+#menusButton:hover {
+    background-color: #555; /* Add a dark-grey background on hover */
+}
+td.high{
+    background-color: #f44242;
+    text-align: center;
+    font-weight: bold;
+}
+td.medium{
+    background-color: #f49d41;
+    text-align: center;
+    font-weight: bold;
+}
+td p{
+    
+}
+    
+
+td.low{
+    /*background-color: #f44242;*/
+    text-align: center;
+    font-weight: bold;
+}
+td.CATASTROPHIC{
+    background-color: #f44242;
+    text-align: center;
+    font-weight: bold;
+}
+td.poor{
+    background-color: #f49d41;
+    text-align: center;
+    font-weight: bold;
+}
+td.newcell{
+    background-color: #33FF90;
+    text-align: center;
+    font-weight: bold;
+}
+td.newversioncell{
+    background-color: #ff99ff;
+    text-align: center;
+    font-weight: bold;
+}
+td.majorcell{
+    background-color: #9bbef7;
+    text-align: center;
+    font-weight: bold;
+}
+td.minorcell{
+    background-color: #41f4df;
+    text-align: center;
+    font-weight: bold;
+}
+td.enumerationOnly{
+    background-color: #f7f79b;
+    text-align: center;
+    font-weight: normal;
+}
+td.cellred{
+    background-color: #f44242;
+    font-weight: bold;
+}
+td.fair{
+    background-color: #f4f141;
+    text-align: center;
+    font-weight: bold;
+}
+td.good.status{
+    background-color: #a0f441;
+    text-align: center;
+    font-weight: bold;
+}
+td.very-good.status{
+    background-color: #41f4df;
+    text-align: center;
+    font-weight: bold;
+}
+td.number{
+    text-align: center;
+}
+td.status{
+    text-align: center;
+    font-weight: bold;
+}
+
+td.excellent.status{
+    background-color: #4173f4;
+    text-align: center;
+    font-weight: bold;
+}
+td.unrated{
+    text-align: center;
+}
+td.down45{
+    background: url(images/down45.jpg) right top no-repeat;
+}
+td.up45{
+    background: url(images/up45.jpg) right top no-repeat;
+}
+td.downDouble{
+    background: url(images/downDouble.jpg) right top no-repeat;
+}
+td.upDouble{
+    background: url(images/upDouble.jpg) right top no-repeat;
+}
+td.downSingle{
+    background: url(images/downSingle.jpg) right top no-repeat;
+}
+td.upSingle{
+    background: url(images/upSingle.jpg) right top no-repeat;
+}
+td.steady{
+    background: url(images/steady.jpg) right top no-repeat;
+}
+#queueQueryDiv{
+    padding-left: 10px;
+}
+
+input[type="checkbox"] { 
+    margin-left: 30px;
+}
+#config-demo {
+    min-width:220px;
+    max-width:600px;
+}
+  

@@ -1,0 +1,17 @@
+.dependencyWheel {
+    font: 10px sans-serif;
+    padding-top: 50px;
+}
+.dependencyWheelContent{
+    width: 100%;
+}
+.dependencyWheelDiagram{
+    float: left;    
+}
+.dependencyWheelTable{
+    float: left;
+    padding-top: 200px;
+}
+dependencyWheelTable{
+   position: fixed; /* Fixed/sticky position */ 
+}

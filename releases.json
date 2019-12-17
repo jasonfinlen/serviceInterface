@@ -1,0 +1,54 @@
+{"releases": [
+    {
+        "releaseName": "MAR19",
+        "soaBranchName": "ServiceModel35",
+        "esbBranchName": "DP_ESB35",
+        "crtBranchName": "ICRT1",
+        "wsgwBranchName": "DP_WSGW17",
+        "intelBranchName": "JasonsSanpit1",
+        "domainBranchName": "DomainModel01",
+        "releaseDateTime": "2019-03-01T21:01:00",
+        "selected": false,
+        "disabled": false,
+        "order": 4
+    },
+    {
+        "releaseName": "APR19",
+        "soaBranchName": "ServiceModel35e",
+        "esbBranchName": "DP_ESB35e",
+        "crtBranchName": "ICRT1",
+        "wsgwBranchName": "DP_WSGW17",
+        "domainBranchName": "DomainModel01",
+        "intelBranchName": "JasonsSanpit1",
+        "releaseDateTime": "2019-03-01T21:01:00",
+        "selected": false,
+        "disabled": false,
+        "order": 3
+    },
+    {
+        "releaseName": "JUN19",
+        "soaBranchName": "ServiceModel36",
+        "esbBranchName": "DP_ESB36",
+        "crtBranchName": "ICRT1",
+        "wsgwBranchName": "DP_WSGW17",
+        "domainBranchName": "DomainModel01",
+        "intelBranchName": "JasonsSanpit1",
+        "releaseDateTime": "2019-03-01T21:01:00",
+        "selected": false,
+        "disabled": false,
+        "order": 2
+    },
+    {
+        "releaseName": "NOV19",
+        "soaBranchName": "ServiceModel37",
+        "esbBranchName": "DP_ESB37",
+        "crtBranchName": "ICRT1",
+        "wsgwBranchName": "DP_WSGW17",
+        "domainBranchName": "DomainModel01",
+        "intelBranchName": "JasonsSanpit2",
+        "releaseDateTime": "2019-11-02T21:01:00",
+        "selected": true,
+        "disabled": false,
+        "order": 1
+    }
+]}

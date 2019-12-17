@@ -1,0 +1,247 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+        <title> Service Repository </title>
+        <link rel="stylesheet" type="text/css" media="screen" href="vendors/jquery-ui-1.12.1/jquery-ui.css" />
+        <link rel="stylesheet" type="text/css" media="screen" href="vendors/quicksearch/quicksearchstyle.css" />
+        <link rel="stylesheet" type="text/css" media="screen" href="vendors/jqtree/jqtree.css"/>
+        <link rel="stylesheet" type="text/css" media="screen" href="css/buildInfoWidget.css"/>
+        <link rel="stylesheet" type="text/css" media="screen" href="css/tree.css"/>
+        <link rel="stylesheet" type="text/css" media="screen" href="css/countDownTimer.css"/>
+        <link rel="stylesheet" type="text/css" media="screen" href="css/repositoryIndex.css"/>
+        <link rel="stylesheet" type="text/css" media="screen" href="vendors/mermaid/mermaid.forest.css"/>
+        <link rel="stylesheet" type="text/css" media="screen" href="vendors/mermaid/card.css"/>
+        <link rel="stylesheet" type="text/css" media="screen" href="vendors/d3/d3style.css"/>
+        <link rel="stylesheet" type="text/css" media="screen" href="css/projectList.css"/>
+        <link rel="stylesheet" type="text/css" media="screen" href="css/repositoryIndex.css"/>
+        <link rel="stylesheet" type="text/css" media="screen" href="css/dependencyWheel.css"/>
+        <link rel="stylesheet" type="text/css" media="screen" href="vendors/c3/c3.css"/>
+        <link rel="stylesheet" type="text/css" media="screen" href="css/c3.custom.css"/>
+    	<link rel="stylesheet" type="text/css" media="screen" href="css/pdf.css"/>
+		<!--<link rel="stylesheet" type="text/css" media="screen" href="vendors/christmas/css/snow.css"/>-->
+        <style type="text/css">
+            #maintab li .ui-icon-close { float: left; margin: 0.4em 0.2em 0 0; cursor: pointer; }
+            #maintab { margin-top: 1em; }
+		</style>
+		<script type="text/javascript" src="../.env"></script>
+        <script type="text/javascript" src="vendors/jquery/jquery-3.2.0.min.js"></script>
+        <script type="text/javascript" src="vendors/jquery-ui-1.12.1/jquery-ui.js"></script>
+        <script type="text/javascript" src="vendors/jqtree/tree.jquery.js"></script>
+        <script type="text/javascript" src="vendors/quicksearch/jquery.quicksearch.js"></script>
+        <script type="text/javascript" src="vendors/jQuery-loadingBlock/js/jquery.loading.block.js"></script>
+    	<script type="text/javascript" src="vendors/jquery-easteregg/jquery.easteregg.js"></script>
+    	<script type="text/javascript" src="vendors/mermaid/mermaid.js"></script>
+    	<script type="text/javascript" src="vendors/d3/d3.v3.5.17.min.js"></script>
+    	<script type="text/javascript" src="vendors/defiant.min.js"></script>
+    	<script type="text/javascript" src="vendors/pdfmake/pdfmake.min.js"></script>
+    	<script type="text/javascript" src="vendors/pdfmake/vfs_fonts.js"></script>
+    	<script type="text/javascript" src="vendors/showdown/showdown.min.js"></script>
+    	<!--script type="text/javascript" src="vendors/d3/d3.js"></script-->
+    	<!--script type="text/javascript" src="vendors/billboard/billboard.min.js"></script-->
+    	
+    	<script type="text/javascript" src="js/filter.js"></script>
+    	<script type="text/javascript" src="js/compareObjects.js"></script>
+        <script type="text/javascript" src="js/chord.js"></script>
+        <script type="text/javascript" src="js/repositoryIndex.js"></script>
+        <script type="text/javascript" src="js/buildInfoWidget.js"></script>
+        <script type="text/javascript" src="js/monthlyStats.js"></script>
+        <script type="text/javascript" src="js/countDownTimer.js"></script>
+        <script type="text/javascript" src="js/diagrams.js"></script>
+        <script type="text/javascript" src="js/genericFunctions.js"></script>
+        <script type="text/javascript" src="js/macroFunctions.js"></script>
+    	<script type="text/javascript" src="js/designPrinciples.js"></script>
+    	<script type="text/javascript" src="js/base64Images.js"></script>
+    	<script type="text/javascript" src="js/xsdParser.js"></script>
+        <script type="text/javascript" src="js/dependencyWheel.js"></script>
+        <script type="text/javascript" src="js/macroGraphs.js"></script>
+        <script type="text/javascript" src="vendors/c3/c3.js"></script>
+    	<script type="text/javascript" src="js/dpConfig.js"></script>
+		<script type="text/javascript" src="js/createPDF.js"></script>
+		<script type="text/javascript" src="js/searchSchema.js"></script>
+    	
+        <script type="text/javascript">
+			var chart = d3.chart.dependencyWheel();
+			$(document).ready(function() {
+			   //testload();
+			   loadRelease();
+	    	});
+			window.onscroll = function() {scrollFunction()};
+	
+			function scrollFunction() {
+			    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+			       document.getElementById("menusButton").style.display = "block";
+			    } else {
+			        document.getElementById("menusButton").style.display = "none";
+			    }
+			}
+			
+			// When the user clicks on the button, scroll to the top of the document
+			function scrollToMenus() {
+			    document.body.scrollTop = 0; // For Chrome, Safari and Opera 
+			    document.documentElement.scrollTop = 0; // For IE and Firefox
+			}
+        </script>
+    </head>
+    <body>
+		<header>
+			<h1>Service Repository</h1>
+			
+			<!--<div id="snow"></div>-->
+		</header>
+    	
+		<!--
+		<div id="santa" >
+			<img src="vendors/christmas/img/santa.gif" style="width:100px; height:100px"/>
+		</div>
+		-->
+    	<div id="menuDiv">
+    		<div id="releaseDiv">
+	    		<label for="releaseSelector">Select a Release</label>
+	    		<select name="releaseSelector" id="releaseSelector">
+	    			<option value="" disabled="disabled" selected="selected"></option>    
+	    		</select>
+    		</div>
+			<!-- <div id="clockdiv" style="margin-right:-100px"> -->
+    		<div id="clockdiv">
+    			<span class="days"></span>
+    			<span class="text">Days |</span>
+    			<span class="hours"></span>
+    			<span class="text">Hours |</span>
+    			<span class="minutes"></span>
+    			<span class="text">Minutes |</span>
+    			<span class="seconds"></span>
+    			<span class="text">Seconds</span>
+    		</div>
+    	</div>
+        <div id="container">
+		    <div id="buildInfo"></div>
+			<div id="chart"></div>
+			<button onclick="scrollToMenus()" id="menusButton" title="Go to menus">Menus</button>
+			<!--div id="releaseInfo"></div-->
+			<div style="display:none" id="div-dialog-warning">
+				<p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span></p>
+			</div>
+        	<div style="display:none" id="div-dialog-clipboard">
+        		<p><span class="ui-icon  ui-icon-clipboard" style="float:left; margin:0 7px 20px 0;"></span></p>
+        	</div>
+			<div style="display:none" id="div-service-list">
+				<p><span class="ui-icon ui-icon-circle-check" style="float:left; margin:0 7px 20px 0;"></span></p>
+			</div>
+			<div id="maintab">
+				<ul>
+					<li><a href="#macros-1">Schemas</a></li>
+					<li><a href="#changes-1">Schema Changes</a></li>
+					<li><a href="#providers-consumers-1">Providers and Consumers</a></li>
+					<li><a href="#schemaFieldsSearch-1">Schema Fields Search</a></li>
+					<li><a href="#dependencyWheel-1">Dependency Wheel</a></li>
+					<li><a href="#crt-1">ReferenceData</a></li>
+					<li><a href="#serviceTransformations-1">Transformations</a></li>
+					<li><a href="#serviceArchitecture-1">Service Architecture</a></li>
+					<li><a href="#serviceDesignPrinciples-1">Design Principles</a></li>
+					<li><a href="#serviceAdmin-1">Service Admin</a></li>
+				</ul>
+				<div id="macros-1">
+					<div id="macrosAccordion" class="accordion">
+					</div>
+				</div>
+				<div id="changes-1">
+					<div id="changesAccordion" class="accordion">
+					</div>
+				</div> 
+				<div id="providers-consumers-1">
+					<div id="providerconsumersAccordion" class="accordion">
+					</div>
+					<!--div id="providerconsumersAccordion" class="accordion">
+						<h3 id="serviceSystemListHeader" class="accordionHeader">Service Providers and Consumers<span class="h3subtext"></span></h3>
+						<div id="serviceSystemListContent" class="accordionContent"></div>
+					</div-->
+				</div>
+				<div id="schemaFieldsSearch-1">
+					<div id="searchXPathAccordion" class="accordion">
+					</div>
+				</div>
+				<div id="dependencyWheel-1" class="dependencyWheel">
+					<div id="dependencyWheelDiagram" class="dependencyWheelDiagram"></div>
+					<div id="dependencyWheelTable" class="dependencyWheelTable"></div>
+				</div>
+				<div id="crt-1">
+					<div id="refDataAccordion" class="accordion">
+						<h3 id="refDataTableListHeader" class="accordionHeader">Reference Data Tables<span class="h3subtext">Loading...</span></h3>
+						<div id="refDataTableListContent" class="accordionContent"></div>
+						<h3 id="searchAllRefDataHeader" class="accordionHeader">Search All Reference Data Fields<span class="h3subtext">Loading...</span></h3>
+						<div id="searchAllRefDataContent" class="accordionContent"></div>
+					</div>
+				</div>
+				<div id="serviceTransformations-1">
+					<div id="serviceTransformationsAccordion" class="accordion">
+						<h3 id="serviceTransformsListHeader" class="accordionHeader">Service Transforms List<span class="h3subtext"></span></h3>
+						<div id="serviceTransformsListContent" class="accordionContent"></div>
+						<h3 id="searchAllTransformationDataHeader" class="accordionHeader">Search All Transformation Data Fields<span class="h3subtext">Loading...</span></h3>
+						<div id="searchAllTransformationDataContent" class="accordionContent"></div>
+					</div>
+				</div>    
+				<div id="serviceArchitecture-1">
+					<h3>Under Construction</h3>
+					<div>This page has not under gone the restructure required to list Service Architecture reports. We hope to be able to compete this in the near future but for now more value has been placed on service discovery.</div>
+					<!--div id="serviceArchitectureAccordion" class="accordion">
+						<h3 id="serviceArchitectureListHeader" class="accordionHeader">Service Class List<span class="h3subtext"></span></h3>
+						<div id="serviceArchitectureListContent" class="accordionContent"></div>
+						<h3 id="requestArchitectureListHeader" class="accordionHeader">Proposal List<span class="h3subtext"></span></h3>
+						<div id="requestArchitectureListContent" class="accordionContent"></div>
+						<h3 id="projectListHeader" class="accordionHeader">Project List<span class="h3subtext">Loading...</span></h3>
+						<div id="projectListContent" class="accordionContent"></div>
+						<h3 id="serviceLifecycleListHeader" class="accordionHeader">Service Status List<span class="h3subtext"></span></h3>
+						<div id="serviceLifecycleListContent" class="accordionContent"></div>
+						<h3 id="servicePatternListHeader" class="accordionHeader">Service Pattern List<span class="h3subtext"></span></h3>
+						<div id="servicePatternListContent" class="accordionContent"></div>
+						<h3 id="serviceFunctionListHeader" class="accordionHeader">Service Function List<span class="h3subtext"></span></h3>
+						<div id="serviceFunctionListContent" class="accordionContent"></div>
+						<h3 id="serviceImplementationListHeader" class="accordionHeader">Implementation List<span class="h3subtext"></span></h3>
+						<div id="serviceImplementationListContent" class="accordionContent"></div>
+						<h3 id="serviceSharedUsageHeader" class="accordionHeader">Shared Usage<span class="h3subtext"></span></h3>
+						<div id="serviceSharedUsageContent" class="accordionContent"></div>
+					</div-->
+				</div>
+				<div id="serviceDesignPrinciples-1">
+					<div id="serviceDesignPrinciplesAccordion" class="accordion">
+						<h3 id="standardizedServiceContractHeader" class="accordionHeader">Standardized Service Contract<span class="h3subtext"></span></h3>
+						<div id="standardizedServiceContractContent" class="accordionContent"></div>
+						<h3 id="serviceLooseCouplingHeader" class="accordionHeader">Service Loose Coupling<span class="h3subtext"></span></h3>
+						<div id="serviceLooseCouplingContent" class="accordionContent"></div>
+						<h3 id="serviceAbstractionHeader" class="accordionHeader">Service Abstraction<span class="h3subtext"></span></h3>
+						<div id="serviceAbstractionContent" class="accordionContent"></div>
+						<h3 id="serviceReusabilityHeader" class="accordionHeader">Service Reusability<span class="h3subtext"></span></h3>
+						<div id="serviceReusabilityContent" class="accordionContent"></div>
+						<h3 id="serviceAutonomyHeader" class="accordionHeader">Service Autonomy<span class="h3subtext"></span></h3>
+						<div id="serviceAutonomyContent" class="accordionContent"></div>
+						<h3 id="serviceStatelessnessHeader" class="accordionHeader">Service Statelessness<span class="h3subtext"></span></h3>
+						<div id="serviceStatelessnessContent" class="accordionContent"></div>
+						<h3 id="serviceDiscoverabilityHeader" class="accordionHeader">Service Discoverability<span class="h3subtext"></span></h3>
+						<div id="serviceDiscoverabilityContent" class="accordionContent"></div>
+						<h3 id="serviceComposabilityHeader" class="accordionHeader">Service Composability<span class="h3subtext"></span></h3>
+						<div id="serviceComposabilityContent" class="accordionContent"></div>
+					</div>
+				</div> 
+				<div id="serviceAdmin-1">
+					<div id="adminAccordion">
+						<h3 id="allBuildsListHeader" class="accordionHeader">All Builds<span class="h3subtext">Loading...</span></h3>
+						<div id="allBuildsListContent" class="accordionContent"></div>
+						<h3 id="serviceEmptySystemListHeader" class="accordionHeader">Empty Providers and Consumers<span class="h3subtext">Loading...</span></h3>
+						<div id="serviceEmptySystemListContent" class="accordionContent"></div>
+						<h3 id="capmProviderListHeader" class="accordionHeader">CAPM Provider List<span class="h3subtext">Loading...</span></h3>
+						<div id="capmProviderListContent" class="accordionContent"></div>
+						<h3 id="capmConsumerListHeader" class="accordionHeader">CAPM Consumer List<span class="h3subtext">Loading...</span></h3>
+						<div id="capmConsumerListContent" class="accordionContent"></div>
+						<h3 id="orphanFieldsListHeader" class="accordionHeader">Orphan Fields<span class="h3subtext">Loading...</span></h3>
+						<div id="orphanFieldsListContent" class="accordionContent"></div>
+						<h3 id="systemChordHeader" class="accordionHeader">System Chord Diagram<span class="h3subtext">Loading...</span></h3>
+						<div id="systemChordContent" class="accordionContent"></div>
+						<h3 id="capmServiceListHeader" class="accordionHeader">CAPM Service List<span class="h3subtext">Loading...</span></h3>
+						<div id="capmServiceListContent" class="accordionContent"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+    </body>
+</html>

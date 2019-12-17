@@ -1,0 +1,12 @@
+.c3-chart-line .c3-circles-expectation {
+  display: none;
+}
+.c3-chart-line .c3-line-expectation {
+  stroke-width: 5px;
+}
+.c3-chart-line .c3-line{
+  stroke-width: 3px;
+}
+.c3-chart-line .c3-circle{
+  r: 3;
+}
