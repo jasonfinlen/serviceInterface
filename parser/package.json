@@ -34,7 +34,7 @@
     "performance-now": "^2.1.0",
     "pkg": "^4.4.0",
     "request-promise": "^4.2.4",
-    "showdown": "^1.9.0",
+    "showdown": "^1.9.1",
     "socket.io": "^2.2.0",
     "winston": "^3.2.1"
   }
